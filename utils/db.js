@@ -19,16 +19,16 @@ class DBClient {
 
   async nbUsers() {
     this.db = this.client.db(this.database);
-    const collection = await this.db.collection('user');
+    const collection = await this.db.collection('users');
     return collection.countDocuments();
   }
 
   async nbFiles() {
     this.db = this.client.db(this.database);
-    const collection = await this.db.collection('file');
+    const collection = await this.db.collection('files');
     return collection.countDocuments();
   }
 }
 
-const dbclient = new DBClient();
-module.exports = dbclient;
+const dbClient = new DBClient();
+module.exports = dbClient;
