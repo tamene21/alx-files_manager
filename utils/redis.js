@@ -2,12 +2,13 @@ import { promisify } from 'util';
 
 const redis = require('redis');
 
-class RedisClient{
-  constructor(){
+class RedisClient {
+  constructor() {
     this.client = redis.createClient();
     this.client.on('error', (error) => console.log(error.message));
   }
-  isAlive(){
+
+  isAlive() {
     return this.client.connected;
   }
 
