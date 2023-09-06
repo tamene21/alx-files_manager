@@ -32,7 +32,7 @@ router.use((request, response, next) => {
 
 router.get('/status', AppController.getStatus);
 router.get('/stats', AppController.getStats);
-router.get('/users/me' UserController.getMe);
+router.get('/users/me' UsersController.getMe);
 router.post('/users', UsersController.postNew);
 router.get('/connect', AuthController.getConnect);
 router.get('/disconnect', AuthController.getDisconnect);
