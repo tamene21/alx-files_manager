@@ -1,4 +1,5 @@
 import { Buffer } from 'buffer';
+import { v4 } from 'uuid';
 import redisClient from '../utils/redis';
 import UtilController from './UtilController';
 import dbClient from '../utils/db';
@@ -14,7 +15,7 @@ export default class AuthController {
       if (user.password !== pwd) {
         response.status(401).json({ error: 'Unauthorized' }).end();
       } else {
-        const _token = '155342df-2399-41da-9e8c-458b6ac52a0c';
+        const _token = v4();
         await redisClient.set(`auth_${_token}`, user._id.toString(), 86400);
         response.status(200).json({ token: _token }).end();
       }
